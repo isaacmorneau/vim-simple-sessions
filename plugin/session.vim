@@ -41,6 +41,9 @@ endif
 "make or update a session for this directory
 function! SS_mk()
     let l:path = substitute(g:ss_dir. g:ss_file, " ", "\\\\ ", "g")
+    if exists("g:loaded_nerdtree_autoload")
+        normal! :NERDTreeClose<CR>
+    endif
     if !empty(glob(l:path, 1))
         echo "Updating existing session"
     else
@@ -52,6 +55,9 @@ endfunction
 "only update a session if it exists
 function! SS_ss()
     let l:path = substitute(g:ss_dir. g:ss_file, " ", "\\\\ ", "g")
+    if exists("g:loaded_nerdtree_autoload")
+        normal! :NERDTreeClose<CR>
+    endif
     if !empty(glob(l:path, 1))
         echo "Updating existing session"
         exec "mksession! " . l:path
