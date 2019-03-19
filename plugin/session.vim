@@ -17,7 +17,7 @@ if !exists('g:ss_file')
     let g:ss_file = substitute(getcwd(), "/", "_", "g")
 endif
 if !exists('g:ss_dir')
-    let g:ss_dir = has('nvim') ? stdpath('data') . '/session/' : '~/.vim/session'
+    let g:ss_dir = has('nvim') ? stdpath('data') . '/session/' : '~/.vim/session/'
 endif
 if !exists('g:ss_auto_alias')
     let g:ss_auto_alias = 1
@@ -50,7 +50,7 @@ function! SS_mk()
 endfunction
 
 "only update a session if it exists
-function! SS_mk()
+function! SS_ss()
     let l:path = substitute(g:ss_dir. g:ss_file, " ", "\\\\ ", "g")
     if !empty(glob(l:path, 1))
         echo "Updating existing session"
@@ -63,8 +63,6 @@ function! SS_ld()
     let l:path = substitute(g:ss_dir . g:ss_file, " ", "\\\\ ", "g")
     if !empty(glob(l:path, 1))
         exec "source " . l:path
-    else
-        echo "No existing session for " . g:ss_file
     endif
 endfunction
 
