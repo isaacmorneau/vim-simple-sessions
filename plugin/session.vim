@@ -29,11 +29,13 @@ if !exists('g:ss_auto_exit')
     let g:ss_auto_exit = 1
 endif
 
-if !isdirectory(g:ss_dir)
-    mkdir(g:ss_dir)
+if exists("*mkdir")
     if !isdirectory(g:ss_dir)
-        echo "Failed to create directory " . g:ss_dir
+        call mkdir(g:ss_dir)
     endif
+endif
+if !isdirectory(g:ss_dir)
+    echo "Failed to create directory " . g:ss_dir
 endif
 
 "make or update a session for this directory
