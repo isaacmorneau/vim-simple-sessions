@@ -17,7 +17,7 @@ g:ss_file = substitute(getcwd(), '/', '_', 'g')
 
 - auto enter will load sessions for that directory automatically if they exist
 - auto exit will save sessions for that directory automatically on :q or :qa if they exist
-- auto alias will create the commands srm, sld, smk, and sss for removing, loading, making, and saving sessions
+- auto alias will create the commands Srm, Sld, Smk, and Sss for removing, loading, making, and saving sessions respectively
 - dir is the folder to store all the sessions in
 - file is how to identify this folder as unique compared to other sessions
 
