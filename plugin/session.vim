@@ -42,7 +42,7 @@ endif
 function! SS_mk()
     let l:path = substitute(g:ss_dir. g:ss_file, " ", "\\\\ ", "g")
     if exists("g:NERDTree")
-        call g:NERDTree.Close()
+        NERDTreeClose
     endif
     if !empty(glob(l:path, 1))
         echo "Updating existing session"
@@ -55,8 +55,8 @@ endfunction
 "only update a session if it exists
 function! SS_ss()
     let l:path = substitute(g:ss_dir. g:ss_file, " ", "\\\\ ", "g")
-    if exists("g:NERDTree")
-        call g:NERDTree.Close()
+    if exists("g:loaded_nerdtree_autoload")
+        NERDTreeClose
     endif
     if !empty(glob(l:path, 1))
         echo "Updating existing session"
