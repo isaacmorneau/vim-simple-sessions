@@ -26,7 +26,7 @@ if !exists('g:ss_auto_enter')
     let g:ss_auto_enter = 1
 endif
 if !exists('g:ss_auto_exit')
-    let g:ss_auto_exit = 1
+    let g:ss_auto_exit = 0
 endif
 
 if exists("*mkdir")
