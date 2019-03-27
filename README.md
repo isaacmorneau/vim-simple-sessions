@@ -28,17 +28,17 @@ i have the following function in my bashrc to allow me to use [fzf](https://gith
 ```
 # select a saved session and open it
 function nvimp() {
-    vcmd=$(command -v nvim &>/dev/null && echo nvim || echo vim)
+    vcmd="$(command -v nvim &>/dev/null && echo nvim || echo vim)"
     if [ $vcmd == "nvim" ]; then
-        vfl="$home/.local/share/nvim/session"
+        vfl="$HOME/.local/share/nvim/session"
     else
-        vfl="$home/.vim/session"
+        vfl="$HOME/.vim/session"
     fi
     file=$(find $vfl -type f | fzf +m -1)
     if [ -n "$file" ]; then
         vcd=$(grep -em 1 'cd ' "$file")
         if [ -n "$vcd" ]; then
-            ${vcd//\~/$home}
+            ${vcd//\~/$HOME}
         fi
         $vcmd
     fi
