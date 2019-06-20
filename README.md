@@ -13,6 +13,7 @@ g:ss_auto_exit 0
 g:ss_auto_alias 1
 g:ss_dir = has(nvim) ? stdpath('data') . '/session/' : '~/.vim/session'
 g:ss_file = substitute(getcwd(), '/', '_', 'g')
+g:ss_open_with_args= 0
 ```
 
 - auto enter will load sessions for that directory automatically if they exist
@@ -20,6 +21,7 @@ g:ss_file = substitute(getcwd(), '/', '_', 'g')
 - auto alias will create the commands Srm, Sld, Smk, and Sss for removing, loading, making, and saving sessions respectively
 - dir is the folder to store all the sessions in
 - file is how to identify this folder as unique compared to other sessions
+- open the session even if arguments are specified
 
 # ease of use
 

@@ -7,6 +7,7 @@
 " g:ss_auto_alias 1
 " g:ss_dir = has(nvim) ? stdpath('data') . '/session/' : '~/.vim/session'
 " g:ss_file = substitute(getcwd(), '/', '_', 'g')
+" g:ss_open_with_args= 0
 
 if exists('g:loaded_simple_sessions')
     finish
@@ -28,6 +29,10 @@ endif
 if !exists('g:ss_auto_exit')
     let g:ss_auto_exit = 0
 endif
+if !exists('g:ss_open_with_args')
+    let g:ss_open_with_args= 0
+endif
+
 
 if exists("*mkdir")
     if !isdirectory(g:ss_dir)
@@ -96,7 +101,11 @@ endif
 
 "auto load the session for the directory if it exists
 if g:ss_auto_enter
-    autocmd VimEnter * nested call SS_ld()
+    if g:ss_open_with_args || len(split(system("ps -o command= -p ".getpid()))) == 1
+        execute 'autocmd VimEnter * nested call SS_ld()'
+    else
+        autocmd VimEnter * nested call SS_ld()
+    endif
 endif
 
 if g:ss_auto_exit
