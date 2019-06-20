@@ -30,7 +30,7 @@ if !exists('g:ss_auto_exit')
     let g:ss_auto_exit = 0
 endif
 if !exists('g:ss_open_with_args')
-    let g:ss_open_with_args= 0
+    let g:ss_open_with_args = 0
 endif
 
 
@@ -103,8 +103,6 @@ endif
 if g:ss_auto_enter
     if g:ss_open_with_args || len(split(system("ps -o command= -p ".getpid()))) == 1
         execute 'autocmd VimEnter * nested call SS_ld()'
-    else
-        autocmd VimEnter * nested call SS_ld()
     endif
 endif
 
