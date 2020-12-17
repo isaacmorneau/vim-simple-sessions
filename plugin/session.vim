@@ -18,7 +18,7 @@ if !exists('g:ss_file')
     let g:ss_file = substitute(getcwd(), "/", "_", "g")
 endif
 if !exists('g:ss_dir')
-    let g:ss_dir = has('nvim') ? stdpath('data') . '/session/' : '~/.vim/session/'
+    let g:ss_dir = has('nvim') ? stdpath('data') . '/session/' : $HOME . '/.vim/session/'
 endif
 if !exists('g:ss_auto_alias')
     let g:ss_auto_alias = 1
